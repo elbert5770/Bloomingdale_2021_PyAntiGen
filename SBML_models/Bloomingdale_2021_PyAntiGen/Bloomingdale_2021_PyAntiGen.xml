@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model metaid="__main" id="__main">
+    <listOfCompartments>
+      <compartment id="BBB" spatialDimensions="3" constant="true"/>
+      <compartment id="BCSFB" spatialDimensions="3" constant="true"/>
+      <compartment id="BrainISF" spatialDimensions="3" constant="true"/>
+      <compartment id="BrainVascular" spatialDimensions="3" constant="true"/>
+      <compartment id="CSF" spatialDimensions="3" constant="true"/>
+      <compartment id="Lymph" spatialDimensions="3" constant="true"/>
+      <compartment id="Plasma" spatialDimensions="3" constant="true"/>
+      <compartment id="TissueEndosomal" spatialDimensions="3" constant="true"/>
+      <compartment id="TissueISF" spatialDimensions="3" constant="true"/>
+      <compartment id="TissueVascular" spatialDimensions="3" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Antibody_BBB" compartment="BBB" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_BCSFB" compartment="BCSFB" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_BrainISF" compartment="BrainISF" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_BrainVascular" compartment="BrainVascular" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_CSF" compartment="CSF" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_Lymph" compartment="Lymph" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_Plasma" compartment="Plasma" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_TissueEndosomal" compartment="TissueEndosomal" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_TissueISF" compartment="TissueISF" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody_TissueVascular" compartment="TissueVascular" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody__FcRn_BBB" compartment="BBB" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody__FcRn_BCSFB" compartment="BCSFB" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Antibody__FcRn_TissueEndosomal" compartment="TissueEndosomal" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="FcRn_BBB" compartment="BBB" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="FcRn_BCSFB" compartment="BCSFB" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="FcRn_TissueEndosomal" compartment="TissueEndosomal" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="V_BBB" value="0.006590364" constant="true"/>
+      <parameter id="V_BCSFB" value="0.000659" constant="true"/>
+      <parameter id="V_BrainISF" value="0.2609784" constant="true"/>
+      <parameter id="V_BrainVascular" value="0.03189736" constant="true"/>
+      <parameter id="V_CSF" value="0.1425" constant="true"/>
+      <parameter id="V_Lymph" value="0.27427" constant="true"/>
+      <parameter id="V_Plasma" value="3.1258535" constant="true"/>
+      <parameter id="V_TissueEndosomal" value="0.335243725" constant="true"/>
+      <parameter id="V_TissueISF" value="11.09880841" constant="true"/>
+      <parameter id="V_TissueVascular" value="1.681410584" constant="true"/>
+      <parameter id="Kdeg" value="26.6" constant="true"/>
+      <parameter id="Kon_FcRn" value="0.559" constant="true"/>
+      <parameter id="Koff_FcRn" value="23.85" constant="true"/>
+      <parameter id="RC_TissueVascular" value="0.923374942" constant="true"/>
+      <parameter id="LT" value="0.3209184" constant="true"/>
+      <parameter id="RC_TissueLymph" value="0.2" constant="true"/>
+      <parameter id="QT" value="160.4592" constant="true"/>
+      <parameter id="LB" value="0.0345" constant="true"/>
+      <parameter id="QB" value="21.4533" constant="true"/>
+      <parameter id="CLup_Tissue" value="0.184384049" constant="true"/>
+      <parameter id="FR_B" constant="true"/>
+      <parameter id="CLup_BBB" value="0.000201" constant="true"/>
+      <parameter id="CLup_BCSFB" value="2.01e-05" constant="true"/>
+      <parameter id="FR" value="0.715" constant="true"/>
+      <parameter id="RC_BBB" value="1" constant="true"/>
+      <parameter id="QB_ECF" value="0.0105" constant="true"/>
+      <parameter id="RC_BrainISF" value="0.2" constant="true"/>
+      <parameter id="RC_BCSFB" value="0.9974" constant="true"/>
+      <parameter id="QB_CSF" value="0.024" constant="true"/>
+      <parameter id="RC_CSF" value="0.2" constant="true"/>
+      <parameter id="Antibody_IV_Dose" constant="true"/>
+      <parameter id="FcRn" value="49800" constant="true"/>
+    </listOfParameters>
+    <listOfInitialAssignments>
+      <initialAssignment symbol="Antibody_Plasma">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> Antibody_IV_Dose </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="FcRn_BBB">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> FcRn </ci>
+            <ci> V_BBB </ci>
+          </apply>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="FcRn_BCSFB">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> FcRn </ci>
+            <ci> V_BCSFB </ci>
+          </apply>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="FcRn_TissueEndosomal">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> FcRn </ci>
+            <ci> V_TissueEndosomal </ci>
+          </apply>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="BBB">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_BBB </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="BCSFB">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_BCSFB </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="BrainISF">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_BrainISF </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="BrainVascular">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_BrainVascular </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="CSF">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_CSF </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="Lymph">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_Lymph </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="Plasma">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_Plasma </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="TissueEndosomal">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_TissueEndosomal </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="TissueISF">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_TissueISF </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="TissueVascular">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> V_TissueVascular </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="FR_B">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> FR </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="Antibody_IV_Dose">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <cn type="integer"> 36 </cn>
+              <cn type="integer"> 70 </cn>
+              <cn type="integer"> 1000 </cn>
+              <cn type="integer"> 1000 </cn>
+            </apply>
+            <cn type="integer"> 150000 </cn>
+          </apply>
+        </math>
+      </initialAssignment>
+    </listOfInitialAssignments>
+    <listOfReactions>
+      <reaction id="DegradationWithinEndosome_Antibody_TissueEndosomal" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Kdeg </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_TissueEndosomal </ci>
+                <ci> V_TissueEndosomal </ci>
+              </apply>
+              <ci> V_TissueEndosomal </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BindingToFcRn_Antibody_TissueEndosomal_fwd" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_TissueEndosomal" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody__FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Kon_FcRn </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_TissueEndosomal </ci>
+                <ci> V_TissueEndosomal </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <ci> FcRn_TissueEndosomal </ci>
+                <ci> V_TissueEndosomal </ci>
+              </apply>
+              <ci> V_TissueEndosomal </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BindingToFcRn_Antibody_TissueEndosomal_rev" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_TissueEndosomal" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Koff_FcRn </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_TissueEndosomal </ci>
+                <ci> V_TissueEndosomal </ci>
+              </apply>
+              <ci> V_TissueEndosomal </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="DegradationWithinEndosome_Antibody_BBB" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BBB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Kdeg </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BBB </ci>
+                <ci> V_BBB </ci>
+              </apply>
+              <ci> V_BBB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BindingToFcRn_Antibody_BBB_fwd" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BBB" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody__FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Kon_FcRn </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BBB </ci>
+                <ci> V_BBB </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <ci> FcRn_BBB </ci>
+                <ci> V_BBB </ci>
+              </apply>
+              <ci> V_BBB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BindingToFcRn_Antibody_BBB_rev" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BBB" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Koff_FcRn </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_BBB </ci>
+                <ci> V_BBB </ci>
+              </apply>
+              <ci> V_BBB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="DegradationWithinEndosome_Antibody_BCSFB" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Kdeg </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BCSFB </ci>
+                <ci> V_BCSFB </ci>
+              </apply>
+              <ci> V_BCSFB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BindingToFcRn_Antibody_BCSFB_fwd" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BCSFB" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody__FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Kon_FcRn </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BCSFB </ci>
+                <ci> V_BCSFB </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <ci> FcRn_BCSFB </ci>
+                <ci> V_BCSFB </ci>
+              </apply>
+              <ci> V_BCSFB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BindingToFcRn_Antibody_BCSFB_rev" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BCSFB" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Koff_FcRn </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_BCSFB </ci>
+                <ci> V_BCSFB </ci>
+              </apply>
+              <ci> V_BCSFB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_TissueVascular_TissueISF" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_TissueVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_TissueISF" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> RC_TissueVascular </ci>
+              </apply>
+              <ci> LT </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_TissueVascular </ci>
+                <ci> V_TissueVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_TissueISF_Lymph" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_TissueISF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_Lymph" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> RC_TissueLymph </ci>
+              </apply>
+              <ci> LT </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_TissueISF </ci>
+                <ci> V_TissueISF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_Plasma_TissueVascular" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_Plasma" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_TissueVascular" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QT </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_Plasma </ci>
+                <ci> V_Plasma </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_TissueVascular_Plasma" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_TissueVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_Plasma" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> QT </ci>
+                <ci> LT </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <ci> Antibody_TissueVascular </ci>
+                <ci> V_TissueVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_Lymph_Plasma" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_Lymph" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_Plasma" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <plus/>
+                <ci> LB </ci>
+                <ci> LT </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <ci> Antibody_Lymph </ci>
+                <ci> V_Lymph </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_Plasma_BrainVascular" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_Plasma" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_Plasma </ci>
+                <ci> V_Plasma </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_BrainVascular_Plasma" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_Plasma" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> QB </ci>
+                <ci> LB </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainVascular </ci>
+                <ci> V_BrainVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_TissueVascular_TissueEndosomal" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_TissueVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CLup_Tissue </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_TissueVascular </ci>
+                <ci> V_TissueVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_TissueISF_TissueEndosomal" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_TissueISF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CLup_Tissue </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_TissueISF </ci>
+                <ci> V_TissueISF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Recycle_FcRn_Antibody_BBB_BrainISF" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BrainISF" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> FR_B </ci>
+              </apply>
+              <ci> CLup_BBB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_BBB </ci>
+                <ci> V_BBB </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Recycle_FcRn_Antibody_BBB_BrainVascular" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BBB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> FR_B </ci>
+              <ci> CLup_BBB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_BBB </ci>
+                <ci> V_BBB </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Recycle_FcRn_Antibody_BCSFB_CSF" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_CSF" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> FR_B </ci>
+              </apply>
+              <ci> CLup_BCSFB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_BCSFB </ci>
+                <ci> V_BCSFB </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Recycle_FcRn_Antibody_BCSFB_BrainVascular" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> FR_B </ci>
+              <ci> CLup_BCSFB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_BCSFB </ci>
+                <ci> V_BCSFB </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Recycle_FcRn_Antibody_TissueEndosomal_TissueISF" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_TissueISF" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> FR </ci>
+              </apply>
+              <ci> CLup_Tissue </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_TissueEndosomal </ci>
+                <ci> V_TissueEndosomal </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Recycle_FcRn_Antibody_TissueEndosomal_TissueVascular" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody__FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_TissueVascular" stoichiometry="1" constant="true"/>
+          <speciesReference species="FcRn_TissueEndosomal" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> FR </ci>
+              <ci> CLup_Tissue </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody__FcRn_TissueEndosomal </ci>
+                <ci> V_TissueEndosomal </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_BrainVascular_BrainISF" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BrainISF" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> RC_BBB </ci>
+              </apply>
+              <ci> QB_ECF </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainVascular </ci>
+                <ci> V_BrainVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_BrainISF_Lymph" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainISF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_Lymph" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> RC_BrainISF </ci>
+              </apply>
+              <ci> QB_ECF </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainISF </ci>
+                <ci> V_BrainISF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_BrainVascular_CSF" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_CSF" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> RC_BCSFB </ci>
+              </apply>
+              <ci> QB_CSF </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainVascular </ci>
+                <ci> V_BrainVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_CSF_Lymph" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_CSF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_Lymph" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> RC_CSF </ci>
+              </apply>
+              <ci> QB_CSF </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_CSF </ci>
+                <ci> V_CSF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_BrainVascular_BBB" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BBB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CLup_BBB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainVascular </ci>
+                <ci> V_BrainVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_BrainISF_BBB" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainISF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BBB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CLup_BBB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainISF </ci>
+                <ci> V_BrainISF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_BrainVascular_BCSFB" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainVascular" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CLup_BCSFB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainVascular </ci>
+                <ci> V_BrainVascular </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="FlowWithinTissue_Antibody_CSF_BCSFB" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_CSF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BCSFB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CLup_BCSFB </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_CSF </ci>
+                <ci> V_CSF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BidirectionalFlowWithinTissue_Antibody_CSF_BrainISF_fwd" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_CSF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_BrainISF" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QB_ECF </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_CSF </ci>
+                <ci> V_CSF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="BidirectionalFlowWithinTissue_Antibody_CSF_BrainISF_rev" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Antibody_BrainISF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Antibody_CSF" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QB_ECF </ci>
+              <apply>
+                <divide/>
+                <ci> Antibody_BrainISF </ci>
+                <ci> V_BrainISF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

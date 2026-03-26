@@ -13,7 +13,7 @@ You must clone the PyAntiGen repository (https://github.com/elbert5770/PyAntiGen
     *   `Bloomingdale_2021_PyAntiGen_generate.py`: Generates the Antimony/SBML models based on PyAntiGen modules.
     *   `Bloomingdale_2021_PyAntiGen_run.py`: Runs baseline simulations.
     *   `Bloomingdale_2021_PyAntiGen_optimize.py`: Script for parameter estimation/optimization.
-    *   `Modules/`: Contains the specific biological module definitions for the Elbert 2022 model.
+    *   `Modules/`: Contains the specific biological module definitions for the Bloomingdale 2021 model.
 *   **`modules/`**: General PyAntiGen modules.
 *   **`antimony_models/`**: Stores generated Antimony (`.txt`) model files.
 *   **`SBML_models/`**: Stores generated SBML (`.xml`) model files.
@@ -34,6 +34,7 @@ You must clone the PyAntiGen repository (https://github.com/elbert5770/PyAntiGen
    # Runs a simulation on the generated model
    python Bloomingdale_2021_PyAntiGen_run.py 
    ```
+In the plot that is generated, the thick dashed lines are results from the original code included in the supplement to Bloomingdale 2021 and the thin lines are the PyAntiGen result.
 
 You may also run the Example script to test the framework:
 Go to `scripts/Example/` and execute the desired script:

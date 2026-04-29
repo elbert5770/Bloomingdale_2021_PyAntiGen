@@ -22,21 +22,34 @@ def load_experiment2_data(data_path):
     return df
 
 
-def generate_sampled_data(result, j, data_path):
+def generate_sampled_data(result, j, k, data_path):
     
     time_points = np.asarray(result['time'])
-    b_comp1 = np.asarray(result['[A_Comp1]'])
+    a_comp1 = np.asarray(result['[A_Comp1]'])
+    b_comp1 = np.asarray(result['[B_Comp1]'])
     rng = np.random.default_rng()
     noise_scale = 0.25  # 3% relative noise
-    noisy_b = b_comp1 + rng.normal(0, noise_scale, size=b_comp1.shape)
     
+    noisy_a = a_comp1 + rng.normal(0, noise_scale, size=a_comp1.shape)
+    noisy_a = abs(noisy_a)
+    rng = np.random.default_rng()
+    # noise_scale = 0.25  # 3% relative noise
+    noisy_b = b_comp1 + rng.normal(0, noise_scale, size=b_comp1.shape)
     noisy_b = abs(noisy_b)
     
-    # Sample every 2 time units (use point closest to each 0, 2, 4, ...)
+    
+        # Sample every 2 time units (use point closest to each 0, 2, 4, ...)
     sample_times = np.arange(0, time_points.max() + 1e-9, 1)
     indices = np.argmin(np.abs(time_points - sample_times[:, np.newaxis]), axis=1)
     sampled_time = time_points[indices]
+    sampled_a = noisy_a[indices]
+    experiment_path = os.path.join(data_path, f'Example_ff_ADpos_{j}_{k}.csv')
+    pd.DataFrame({'time': sampled_time, 'A': sampled_a}).to_csv(experiment_path, index=False)
+    # Sample every 2 time units (use point closest to each 0, 2, 4, ...)
+    sample_times = np.arange(0, time_points.max() + 1e-9, 4)
+    indices = np.argmin(np.abs(time_points - sample_times[:, np.newaxis]), axis=1)
+    sampled_time = time_points[indices]
     sampled_b = noisy_b[indices]
-    experiment_path = os.path.join(data_path, 'Example_ff2_{}.csv'.format(j))
-    pd.DataFrame({'time': sampled_time, 'A': sampled_b}).to_csv(experiment_path, index=False)
+    experiment_path = os.path.join(data_path, f'Example_ADpos_{j}_{k}.csv')
+    pd.DataFrame({'time': sampled_time, 'B': sampled_b}).to_csv(experiment_path, index=False)
     return sampled_time, sampled_b

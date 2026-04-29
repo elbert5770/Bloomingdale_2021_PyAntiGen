@@ -10,7 +10,7 @@
     </listOfSpecies>
     <listOfParameters>
       <parameter id="V_Comp1" value="1" constant="true"/>
-      <parameter id="k_A_to_B" value="0.1" constant="true"/>
+      <parameter id="k_A_to_B" value="0.2" constant="true"/>
       <parameter id="pw_interp1" value="0" constant="false"/>
       <parameter id="pw_interp2" value="0" constant="false"/>
     </listOfParameters>

@@ -29,29 +29,35 @@ def run_simulation():
         repo_root = os.path.abspath(os.path.join(_project_dir, "..", ".."))
     model_text, data_path, plot_path, repo_root = AntimonyGen(MODEL_NAME, repo_root=repo_root)
     results = []
-    for spec in EXPERIMENTS:
-        events = spec["event_func"]()
-        df = spec["load_data"](data_path)
-        
-        if "Experiment 1" in spec["label"]:
-            pw_str1 = generate_antimony_piecewise(df["time"], df["B"], data_name="pw_interp1", interpolation_type="linear")
-            pw_str2 = generate_antimony_piecewise(df["time"], df["B"], data_name="pw_interp2", interpolation_type="spline")
-        else:
-            pw_str1 = "pw_interp1 := 0.0"
-            pw_str2 = "pw_interp2 := 0.0"
+    for i in range(1,4):
+        for spec in EXPERIMENTS:
+            events = spec["event_func"]()
+            df = spec["load_data"](data_path)
             
-        full_model_text = model_text + "\n" + events + "\n" + pw_str1 + "\n" + pw_str2
-        r = TelluriumGen(full_model_text, MODEL_NAME, repo_root)
-        result = simulate(r)
-        if "Experiment 2" in spec["label"]:
-            generate_sampled_data(result, 3, data_path)
+            if "Experiment 1" in spec["label"]:
+                pw_str1 = generate_antimony_piecewise(df["time"], df["B"], data_name="pw_interp1", interpolation_type="linear")
+                pw_str2 = generate_antimony_piecewise(df["time"], df["B"], data_name="pw_interp2", interpolation_type="spline")
+            else:
+                pw_str1 = "pw_interp1 := 0.0"
+                pw_str2 = "pw_interp2 := 0.0"
+                
+            full_model_text = model_text + "\n" + events + "\n" + pw_str1 + "\n" + pw_str2
+            r = TelluriumGen(full_model_text, MODEL_NAME, repo_root)
+            result = simulate(r)
+            
+            if "Experiment 1" in spec["label"]:
+                generate_sampled_data(result, i, 1, data_path)
+            
+            if "Experiment 2" in spec["label"]:
+                generate_sampled_data(result, i, 2, data_path)
+                
 
-        results.append({
-            "id": spec["id"],
-            "result": result,
-            "data": df,
-            "label": spec.get("label", spec["id"]),
-        })
+            results.append({
+                "id": spec["id"],
+                "result": result,
+                "data": df,
+                "label": spec.get("label", spec["id"]),
+            })
     plot_results(plot_path, MODEL_NAME, results)
     
 if __name__ == "__main__":

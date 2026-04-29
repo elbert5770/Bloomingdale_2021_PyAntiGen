@@ -1,6 +1,7 @@
 
 import os
 import sys
+import numpy as np
 
 # Use location: import Model_* from the same folder as this script (model folder)
 _project_dir = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +20,7 @@ from framework.data_interpolation import generate_antimony_piecewise
 from Modules.Experiment import EXPERIMENTS
 from Modules.Plots import plot_results
 from Modules.Simulate import simulate
-
+from Modules.Data import generate_sampled_data
 
 def run_simulation():
     if os.path.basename(_project_dir) == "scripts":
@@ -42,6 +43,9 @@ def run_simulation():
         full_model_text = model_text + "\n" + events + "\n" + pw_str1 + "\n" + pw_str2
         r = TelluriumGen(full_model_text, MODEL_NAME, repo_root)
         result = simulate(r)
+        if "Experiment 2" in spec["label"]:
+            generate_sampled_data(result, 3, data_path)
+
         results.append({
             "id": spec["id"],
             "result": result,
